@@ -52,11 +52,11 @@ export class ProfileComponent implements AfterViewInit, OnDestroy {
 
   defaultCodeSamples = {
     curl: `curl -X GET \\
-'https://api.99gift.in/user/validate-token' \\
+'https://api2.99gift.in/api/serve/user/validate-token' \\
 -H 'Content-Type: application/json' \\
 -H 'Authorization: Bearer YOUR_API_TOKEN'`,
     javascript: `// Using Fetch API
-fetch('https://api.99gift.in/user/validate-token', {
+fetch('https://api2.99gift.in/api/serve/user/validate-token', {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ fetch('https://api.99gift.in/user/validate-token', {
     python: `import requests
 
 response = requests.get(
-  "https://api.99gift.in/user/validate-token",
+  "https://api2.99gift.in/api/serve/user/validate-token",
   headers={
     "Content-Type": "application/json",
     "Authorization": "Bearer YOUR_API_TOKEN"
@@ -93,7 +93,7 @@ $options = [
 
 $context = stream_context_create($options);
 $response = file_get_contents(
-  'https://api.99gift.in/user/validate-token', 
+  'https://api2.99gift.in/api/serve/user/validate-token', 
   false, 
   $context
 );
@@ -154,7 +154,7 @@ if ($response !== false) {
           label: 'validate-token',
           kind: monaco.languages.CompletionItemKind.Function,
           documentation: 'Profile validation endpoint',
-          insertText: "'https://api.99gift.in/user/validate-token'",
+          insertText: "'https://api2.99gift.in/api/serve/user/validate-token'",
           range: new monaco.Range(
             position.lineNumber, 
             position.column, 

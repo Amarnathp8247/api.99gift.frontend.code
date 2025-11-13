@@ -64,13 +64,13 @@ export class ProductSearchComponent implements AfterViewInit, OnDestroy {
 
   defaultCodeSamples = {
     curl: `curl -X POST \\
-'https://api.99gift.in/list' \\
+'https://api2.99gift.in/api/serve/list' \\
 -H 'Content-Type: application/json' \\
 -d '${JSON.stringify(this.defaultRequestPayload, null, 2)}'`,
     javascript: `// Using Fetch API
 const productListData = ${JSON.stringify(this.defaultRequestPayload, null, 2)};
 
-fetch('https://api.99gift.in/list', {
+fetch('https://api2.99gift.in/api/serve/list', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
@@ -88,7 +88,7 @@ fetch('https://api.99gift.in/list', {
 product_list_data = ${JSON.stringify(this.defaultRequestPayload, null, 2)}
 
 response = requests.post(
-  "https://api.99gift.in/list",
+  "https://api2.99gift.in/api/serve/list",
   json=product_list_data,
   headers={"Content-Type": "application/json"}
 )
@@ -110,7 +110,7 @@ $options = [
 
 $context = stream_context_create($options);
 $response = file_get_contents(
-  'https://api.99gift.in/list', 
+  'https://api2.99gift.in/api/serve/list', 
   false, 
   $context
 );
@@ -171,7 +171,7 @@ if ($response !== false) {
           label: 'list',
           kind: monaco.languages.CompletionItemKind.Function,
           documentation: 'Product search endpoint',
-          insertText: "'https://api.99gift.in/list'",
+          insertText: "'https://api2.99gift.in/api/serve/list'",
           range: new monaco.Range(
             position.lineNumber, 
             position.column, 

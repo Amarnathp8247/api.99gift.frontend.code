@@ -54,14 +54,14 @@ export class VoucherStatusComponent {
   // Default code samples
   defaultCodeSamples = {
     curl: `curl -X POST \\
-'https://api.99gift.in/user/reports/${this.defaultStatusId}' \\
+'https://api2.99gift.in/api/serve/user/reports/${this.defaultStatusId}' \\
 -H 'Content-Type: application/json' \\
 -H 'Authorization: Bearer YOUR_API_TOKEN' \\
 -d '${JSON.stringify(this.defaultRequestPayload, null, 2)}'`,
     javascript: `// Using Fetch API
 const voucherStatusData = ${JSON.stringify(this.defaultRequestPayload, null, 2)};
 
-fetch('https://api.99gift.in/user/reports/${this.defaultStatusId}', {
+fetch('https://api2.99gift.in/api/serve/user/reports/${this.defaultStatusId}', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ fetch('https://api.99gift.in/user/reports/${this.defaultStatusId}', {
 voucher_status_data = ${JSON.stringify(this.defaultRequestPayload, null, 2)}
 
 response = requests.post(
-  "https://api.99gift.in/user/reports/${this.defaultStatusId}",
+  "https://api2.99gift.in/api/serve/user/reports/${this.defaultStatusId}",
   json=voucher_status_data,
   headers={
     "Content-Type": "application/json",
@@ -105,7 +105,7 @@ $options = [
 
 $context = stream_context_create($options);
 $response = file_get_contents(
-  'https://api.99gift.in/user/reports/${this.defaultStatusId}', 
+  'https://api2.99gift.in/api/serve/user/reports/${this.defaultStatusId}', 
   false, 
   $context
 );

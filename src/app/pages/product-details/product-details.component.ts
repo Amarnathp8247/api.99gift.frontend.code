@@ -52,10 +52,10 @@ export class ProductDetailsComponent implements AfterViewInit, OnDestroy {
 
   defaultCodeSamples = {
     curl: `curl -X GET \\
-'https://api.99gift.in/product/infos/${this.defaultProductId}' \\
+'https://api2.99gift.in/api/serve/product/infos/${this.defaultProductId}' \\
 -H 'Content-Type: application/json'`,
     javascript: `// Using Fetch API
-fetch('https://api.99gift.in/product/infos/${this.defaultProductId}', {
+fetch('https://api2.99gift.in/api/serve/product/infos/${this.defaultProductId}', {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json'
@@ -70,7 +70,7 @@ fetch('https://api.99gift.in/product/infos/${this.defaultProductId}', {
     python: `import requests
 
 response = requests.get(
-  "https://api.99gift.in/product/infos/${this.defaultProductId}",
+  "https://api2.99gift.in/api/serve/product/infos/${this.defaultProductId}",
   headers={"Content-Type": "application/json"}
 )
 
@@ -88,7 +88,7 @@ $options = [
 
 $context = stream_context_create($options);
 $response = file_get_contents(
-  'https://api.99gift.in/product/infos/${this.defaultProductId}', 
+  'https://api2.99gift.in/api/serve/product/infos/${this.defaultProductId}', 
   false, 
   $context
 );
@@ -149,7 +149,7 @@ if ($response !== false) {
           label: 'product/infos',
           kind: monaco.languages.CompletionItemKind.Function,
           documentation: 'Product details endpoint',
-          insertText: "'https://api.99gift.in/product/infos/'",
+          insertText: "'https://api2.99gift.in/api/serve/product/infos/'",
           range: new monaco.Range(
             position.lineNumber, 
             position.column, 
@@ -172,10 +172,10 @@ if ($response !== false) {
   updateCodeSamples() {
     this.codeSamples = {
       curl: `curl -X GET \\
-'https://api.99gift.in/product/infos/${this.productIdInput}' \\
+'https://api2.99gift.in/api/serve/product/infos/${this.productIdInput}' \\
 -H 'Content-Type: application/json'`,
       javascript: `// Using Fetch API
-fetch('https://api.99gift.in/product/infos/${this.productIdInput}', {
+fetch('https://api2.99gift.in/api/serve/product/infos/${this.productIdInput}', {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json'
@@ -190,7 +190,7 @@ fetch('https://api.99gift.in/product/infos/${this.productIdInput}', {
       python: `import requests
 
 response = requests.get(
-  "https://api.99gift.in/product/infos/${this.productIdInput}",
+  "https://api2.99gift.in/api/serve/product/infos/${this.productIdInput}",
   headers={"Content-Type": "application/json"}
 )
 
@@ -208,7 +208,7 @@ $options = [
 
 $context = stream_context_create($options);
 $response = file_get_contents(
-  'https://api.99gift.in/product/infos/${this.productIdInput}', 
+  'https://api2.99gift.in/api/serve/product/infos/${this.productIdInput}', 
   false, 
   $context
 );

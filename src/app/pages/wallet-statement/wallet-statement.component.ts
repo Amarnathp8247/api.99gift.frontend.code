@@ -52,14 +52,14 @@ export class WalletStatementComponent {
   // Default code samples
   defaultCodeSamples = {
     curl: `curl -X POST \\
-'https://api.99gift.in/user/account-statement' \\
+'https://api2.99gift.in/api/serve/user/account-statement' \\
 -H 'Content-Type: application/json' \\
 -H 'Authorization: Bearer YOUR_API_TOKEN' \\
 -d '${JSON.stringify(this.defaultRequestPayload, null, 2)}'`,
     javascript: `// Using Fetch API
 const accountStatementData = ${JSON.stringify(this.defaultRequestPayload, null, 2)};
 
-fetch('https://api.99gift.in/user/account-statement', {
+fetch('https://api2.99gift.in/api/serve/user/account-statement', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ fetch('https://api.99gift.in/user/account-statement', {
 account_statement_data = ${JSON.stringify(this.defaultRequestPayload, null, 2)}
 
 response = requests.post(
-  "https://api.99gift.in/user/account-statement",
+  "https://api2.99gift.in/api/serve/user/account-statement",
   json=account_statement_data,
   headers={
     "Content-Type": "application/json",
@@ -103,7 +103,7 @@ $options = [
 
 $context = stream_context_create($options);
 $response = file_get_contents(
-  'https://api.99gift.in/user/account-statement', 
+  'https://api2.99gift.in/api/serve/user/account-statement', 
   false, 
   $context
 );

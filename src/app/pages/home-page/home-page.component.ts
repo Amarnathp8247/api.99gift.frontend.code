@@ -245,7 +245,7 @@ public class CryptoUtils {
     },
     login: {
       curl: `curl -X POST \\
-'https://api.99gift.in/user/login-Corporate/merchant' \\
+'https://api2.99gift.in/api/serve/user/login-Corporate/merchant' \\
 -H 'Content-Type: application/json' \\
 -d '{
   "mobile": "9182XXXXX94",
@@ -259,7 +259,7 @@ const loginData = {
   authcode: "128636"
 };
 
-fetch('https://api.99gift.in/user/login-Corporate/merchant', {
+fetch('https://api2.99gift.in/api/serve/user/login-Corporate/merchant', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
@@ -282,7 +282,7 @@ login_data = {
 }
 
 response = requests.post(
-  "https://api.99gift.in/user/login-Corporate/merchant",
+  "https://api2.99gift.in/api/serve/user/login-Corporate/merchant",
   json=login_data,
   headers={"Content-Type": "application/json"}
 )
@@ -310,7 +310,7 @@ $options = [
 
 $context = stream_context_create($options);
 $response = file_get_contents(
-  'https://api.99gift.in/user/login-Corporate/merchant', 
+  'https://api2.99gift.in/api/serve/user/login-Corporate/merchant', 
   false, 
   $context
 );
@@ -328,12 +328,12 @@ if ($response !== false) {
     },
     profile: {
       curl: `curl -X GET \\
-'https://api.99gift.in/user/validate-token' \\
+'https://api2.99gift.in/api/serve/user/validate-token' \\
 -H 'Authorization: Bearer YOUR_JWT_TOKEN'`,
       js: `// Using Fetch API with JWT from localStorage
 const jwtToken = localStorage.getItem('jwtToken');
 
-fetch('https://api.99gift.in/user/validate-token', {
+fetch('https://api2.99gift.in/api/serve/user/validate-token', {
   method: 'GET',
   headers: {
     'Authorization': \`Bearer \${jwtToken}\`
@@ -347,7 +347,7 @@ fetch('https://api.99gift.in/user/validate-token', {
 jwt_token = "YOUR_JWT_TOKEN"  # Replace with actual token
 
 response = requests.get(
-  "https://api.99gift.in/user/validate-token",
+  "https://api2.99gift.in/api/serve/user/validate-token",
   headers={"Authorization": f"Bearer {jwt_token}"}
 )
 
