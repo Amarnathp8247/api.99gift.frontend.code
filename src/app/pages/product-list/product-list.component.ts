@@ -67,7 +67,7 @@ export class ProductListComponent implements AfterViewInit, OnDestroy {
     curl: `curl -X POST \\
 'https://api2.99gift.in/api/serve/list' \\
 -H 'Content-Type: application/json' \\
--H 'Authorization: Bearer YOUR_API_KEY' \\
+-H 'token:   YOUR_API_KEY' \\
 -d '${JSON.stringify(this.defaultRequestPayload, null, 2)}'`,
     javascript: `// Using Fetch API
 const productListData = ${JSON.stringify(this.defaultRequestPayload, null, 2)};
@@ -76,7 +76,7 @@ fetch('https://api2.99gift.in/api/serve/list', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer YOUR_API_KEY'
+    'token': '  YOUR_API_KEY'
   },
   body: JSON.stringify(productListData)
 })
@@ -95,7 +95,7 @@ response = requests.post(
   json=product_list_data,
   headers={
     "Content-Type": "application/json",
-    "Authorization": "Bearer YOUR_API_KEY"
+    "token": "  YOUR_API_KEY"
   }
 )
 
@@ -108,7 +108,7 @@ $productListData = ${JSON.stringify(this.defaultRequestPayload, null, 2)};
 
 $options = [
   'http' => [
-    'header' => "Content-Type: application/json\\r\\nAuthorization: Bearer YOUR_API_KEY\\r\\n",
+    'header' => "Content-Type: application/json\\r\\nAuthorization:   YOUR_API_KEY\\r\\n",
     'method' => 'POST',
     'content' => json_encode($productListData)
   ]
@@ -227,7 +227,7 @@ if ($response !== false) {
       let hasAuthHeader = false;
 
       if (this.activeTab === 'curl') {
-        hasAuthHeader = editorContent.includes("Authorization: Bearer");
+        hasAuthHeader = editorContent.includes("token:  ");
         const jsonMatch = editorContent.match(/-d\s+'([^']+)'/);
         if (jsonMatch && jsonMatch[1]) {
           payload = JSON.parse(jsonMatch[1]);
@@ -235,7 +235,7 @@ if ($response !== false) {
           throw new Error('Could not extract JSON payload from curl command');
         }
       } else if (this.activeTab === 'javascript') {
-        hasAuthHeader = editorContent.includes("'Authorization'");
+        hasAuthHeader = editorContent.includes("'token'");
         const jsonMatch = editorContent.match(/const productListData = ({[^}]+})/);
         if (jsonMatch && jsonMatch[1]) {
           payload = eval(`(${jsonMatch[1]})`);
@@ -243,7 +243,7 @@ if ($response !== false) {
           throw new Error('Could not extract payload from JavaScript code');
         }
       } else if (this.activeTab === 'python') {
-        hasAuthHeader = editorContent.includes("'Authorization'");
+        hasAuthHeader = editorContent.includes("'token'");
         const jsonMatch = editorContent.match(/product_list_data = ({[^}]+})/);
         if (jsonMatch && jsonMatch[1]) {
           const pythonDict = jsonMatch[1]
@@ -255,7 +255,7 @@ if ($response !== false) {
           throw new Error('Could not extract payload from Python code');
         }
       } else if (this.activeTab === 'php') {
-        hasAuthHeader = editorContent.includes("Authorization: Bearer");
+        hasAuthHeader = editorContent.includes("token:  ");
         const jsonMatch = editorContent.match(/\$productListData = (\[[^\]]+\])/);
         if (jsonMatch && jsonMatch[1]) {
           const phpArray = jsonMatch[1]

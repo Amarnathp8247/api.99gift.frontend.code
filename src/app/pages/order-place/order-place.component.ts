@@ -79,7 +79,7 @@ export class OrderPlaceComponent implements AfterViewInit, OnDestroy {
     curl: `curl -X PUT \\
 'https://api2.99gift.in/api/serve/gift/order-create-corporate' \\
 -H 'Content-Type: application/json' \\
--H 'Authorization: Bearer YOUR_API_TOKEN' \\
+-H 'token:   YOUR_API_TOKEN' \\
 -d '${JSON.stringify({data: "ENCRYPTED_PAYLOAD"}, null, 2)}'`,
     javascript: `// Using Fetch API
 const orderData = ${JSON.stringify(this.defaultRequestPayload, null, 2)};
@@ -89,7 +89,7 @@ fetch('https://api2.99gift.in/api/serve/gift/order-create-corporate', {
   method: 'PUT',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer YOUR_API_TOKEN'
+    'token': '  YOUR_API_TOKEN'
   },
   body: JSON.stringify({data: "ENCRYPTED_PAYLOAD"}) // Replace with encrypted payload
 })
@@ -109,7 +109,7 @@ response = requests.put(
   json={"data": "ENCRYPTED_PAYLOAD"},  // Replace with encrypted payload
   headers={
     "Content-Type": "application/json",
-    "Authorization": "Bearer YOUR_API_TOKEN"
+    "token": "  YOUR_API_TOKEN"
   }
 )
 
@@ -123,7 +123,7 @@ $orderData = ${JSON.stringify(this.defaultRequestPayload, null, 2)};
 
 $options = [
   'http' => [
-    'header' => "Content-Type: application/json\\r\\nAuthorization: Bearer YOUR_API_TOKEN\\r\\n",
+    'header' => "Content-Type: application/json\\r\\nAuthorization:   YOUR_API_TOKEN\\r\\n",
     'method' => 'PUT',
     'content' => json_encode(["data" => "ENCRYPTED_PAYLOAD"]) // Replace with encrypted payload
   ]
@@ -284,11 +284,11 @@ if ($response !== false) {
         payload = JSON.parse(match[1].replace(/'/g, '"').replace(/=>/g, ':'));
       }
 
-      const hasAuth = editorContent.includes("Authorization: Bearer") || 
-                     editorContent.includes("'Authorization'") || 
-                     editorContent.includes('"Authorization"');
+      const hasAuth = editorContent.includes("token:  ") || 
+                     editorContent.includes("'token'") || 
+                     editorContent.includes('"token"');
 
-      if (!hasAuth) throw new Error('Authorization token is required');
+      if (!hasAuth) throw new Error('token token is required');
 
       await new Promise(resolve => setTimeout(resolve, 800));
       

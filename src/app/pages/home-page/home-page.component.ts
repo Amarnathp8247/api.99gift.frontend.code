@@ -329,14 +329,14 @@ if ($response !== false) {
     profile: {
       curl: `curl -X GET \\
 'https://api2.99gift.in/api/serve/user/validate-token' \\
--H 'Authorization: Bearer YOUR_JWT_TOKEN'`,
+-H 'token:   YOUR_JWT_TOKEN'`,
       js: `// Using Fetch API with JWT from localStorage
 const jwtToken = localStorage.getItem('jwtToken');
 
 fetch('https://api2.99gift.in/api/serve/user/validate-token', {
   method: 'GET',
   headers: {
-    'Authorization': \`Bearer \${jwtToken}\`
+    'token': \`  \${jwtToken}\`
   }
 })
 .then(response => response.json())
@@ -348,7 +348,7 @@ jwt_token = "YOUR_JWT_TOKEN"  # Replace with actual token
 
 response = requests.get(
   "https://api2.99gift.in/api/serve/user/validate-token",
-  headers={"Authorization": f"Bearer {jwt_token}"}
+  headers={"token": f"  {jwt_token}"}
 )
 
 if response.status_code == 200:

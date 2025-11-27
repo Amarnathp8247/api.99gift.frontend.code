@@ -54,13 +54,13 @@ export class ProfileComponent implements AfterViewInit, OnDestroy {
     curl: `curl -X GET \\
 'https://api2.99gift.in/api/serve/user/validate-token' \\
 -H 'Content-Type: application/json' \\
--H 'Authorization: Bearer YOUR_API_TOKEN'`,
+-H 'token:   YOUR_API_TOKEN'`,
     javascript: `// Using Fetch API
 fetch('https://api2.99gift.in/api/serve/user/validate-token', {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer YOUR_API_TOKEN'
+    'token': '  YOUR_API_TOKEN'
   }
 })
 .then(response => response.json())
@@ -75,7 +75,7 @@ response = requests.get(
   "https://api2.99gift.in/api/serve/user/validate-token",
   headers={
     "Content-Type": "application/json",
-    "Authorization": "Bearer YOUR_API_TOKEN"
+    "token": "  YOUR_API_TOKEN"
   }
 )
 
@@ -86,7 +86,7 @@ else:
     php: `<?php
 $options = [
   'http' => [
-    'header' => "Content-Type: application/json\\r\\nAuthorization: Bearer YOUR_API_TOKEN\\r\\n",
+    'header' => "Content-Type: application/json\\r\\nAuthorization:   YOUR_API_TOKEN\\r\\n",
     'method' => 'GET'
   ]
 ];
@@ -204,20 +204,20 @@ if ($response !== false) {
 
       // Check for authorization header in all code samples
       if (this.activeTab === 'curl') {
-        hasAuthHeader = editorContent.includes("Authorization: Bearer");
+        hasAuthHeader = editorContent.includes("token:  ");
       } else if (this.activeTab === 'javascript') {
-        hasAuthHeader = editorContent.includes("'Authorization'");
+        hasAuthHeader = editorContent.includes("'token'");
       } else if (this.activeTab === 'python') {
-        hasAuthHeader = editorContent.includes('"Authorization"');
+        hasAuthHeader = editorContent.includes('"token"');
       } else if (this.activeTab === 'php') {
-        hasAuthHeader = editorContent.includes("Authorization: Bearer");
+        hasAuthHeader = editorContent.includes("token:  ");
       }
 
       if (!hasAuthHeader) {
         this.responseStatus = 'error';
         this.apiResponse = JSON.stringify({
           status: false,
-          message: "Authorization token is required",
+          message: "token token is required",
           data: null
         }, null, 2);
         return;

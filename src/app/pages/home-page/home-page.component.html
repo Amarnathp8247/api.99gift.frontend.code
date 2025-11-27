@@ -60,7 +60,7 @@
         <p>
           The 99Gift API uses JWT (JSON Web Tokens) for authentication. After
           successful login and OTP verification, you will receive a JWT token
-          that must be included in the Authorization header of all subsequent
+          that must be included in the token header of all subsequent
           requests.
         </p>
       </div>
@@ -78,10 +78,10 @@
           </thead>
           <tbody>
             <tr>
-              <td>Authorization</td>
+              <td>token</td>
               <td>Yes</td>
-              <td>Bearer token received after authentication</td>
-              <td>Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</td>
+              <td>  token received after authentication</td>
+              <td>  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</td>
             </tr>
             <tr>
               <td>Content-Type</td>

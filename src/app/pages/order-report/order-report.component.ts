@@ -68,7 +68,7 @@ export class OrderReportComponent implements AfterViewInit, OnDestroy {
     curl: `curl -X POST \\
 'https://api2.99gift.in/api/serve/user/reports/0' \\
 -H 'Content-Type: application/json' \\
--H 'Authorization: Bearer YOUR_API_TOKEN' \\
+-H 'token:   YOUR_API_TOKEN' \\
 -d '${JSON.stringify(this.defaultRequestPayload, null, 2)}'`,
     javascript: `// Using Fetch API
 const reportData = ${JSON.stringify(this.defaultRequestPayload, null, 2)};
@@ -77,7 +77,7 @@ fetch('https://api2.99gift.in/api/serve/user/reports/0', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer YOUR_API_TOKEN'
+    'token': '  YOUR_API_TOKEN'
   },
   body: JSON.stringify(reportData)
 })
@@ -96,7 +96,7 @@ response = requests.post(
   json=report_data,
   headers={
     "Content-Type": "application/json",
-    "Authorization": "Bearer YOUR_API_TOKEN"
+    "token": "  YOUR_API_TOKEN"
   }
 )
 
@@ -109,7 +109,7 @@ $reportData = ${JSON.stringify(this.defaultRequestPayload, null, 2)};
 
 $options = [
   'http' => [
-    'header' => "Content-Type: application/json\\r\\nAuthorization: Bearer YOUR_API_TOKEN\\r\\n",
+    'header' => "Content-Type: application/json\\r\\nAuthorization:   YOUR_API_TOKEN\\r\\n",
     'method' => 'POST',
     'content' => json_encode($reportData)
   ]
@@ -245,11 +245,11 @@ if ($response !== false) {
         payload = JSON.parse(match[1].replace(/'/g, '"').replace(/=>/g, ':'));
       }
 
-      const hasAuth = editorContent.includes("Authorization: Bearer") || 
-                     editorContent.includes("'Authorization'") || 
-                     editorContent.includes('"Authorization"');
+      const hasAuth = editorContent.includes("token:  ") || 
+                     editorContent.includes("'token'") || 
+                     editorContent.includes('"token"');
 
-      if (!hasAuth) throw new Error('Authorization token is required');
+      if (!hasAuth) throw new Error('token token is required');
 
       await new Promise(resolve => setTimeout(resolve, 800));
       

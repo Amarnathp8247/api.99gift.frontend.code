@@ -54,7 +54,7 @@ export class WalletStatementComponent {
     curl: `curl -X POST \\
 'https://api2.99gift.in/api/serve/user/account-statement' \\
 -H 'Content-Type: application/json' \\
--H 'Authorization: Bearer YOUR_API_TOKEN' \\
+-H 'token:   YOUR_API_TOKEN' \\
 -d '${JSON.stringify(this.defaultRequestPayload, null, 2)}'`,
     javascript: `// Using Fetch API
 const accountStatementData = ${JSON.stringify(this.defaultRequestPayload, null, 2)};
@@ -63,7 +63,7 @@ fetch('https://api2.99gift.in/api/serve/user/account-statement', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer YOUR_API_TOKEN'
+    'token': '  YOUR_API_TOKEN'
   },
   body: JSON.stringify(accountStatementData)
 })
@@ -82,7 +82,7 @@ response = requests.post(
   json=account_statement_data,
   headers={
     "Content-Type": "application/json",
-    "Authorization": "Bearer YOUR_API_TOKEN"
+    "token": "  YOUR_API_TOKEN"
   }
 )
 
@@ -95,7 +95,7 @@ $accountStatementData = ${JSON.stringify(this.defaultRequestPayload, null, 2)};
 
 $options = [
   'http' => [
-    'header' => "Content-Type: application/json\\r\\nAuthorization: Bearer YOUR_API_TOKEN\\r\\n",
+    'header' => "Content-Type: application/json\\r\\nAuthorization:   YOUR_API_TOKEN\\r\\n",
     'method' => 'POST',
     'content' => json_encode($accountStatementData)
   ]
@@ -207,15 +207,15 @@ if ($response !== false) {
       }
 
       // Check for authorization header
-      const hasAuthHeader = editorContent.includes("Authorization: Bearer") || 
-                          editorContent.includes("'Authorization'") || 
-                          editorContent.includes('"Authorization"');
+      const hasAuthHeader = editorContent.includes("token:  ") || 
+                          editorContent.includes("'token'") || 
+                          editorContent.includes('"token"');
 
       if (!hasAuthHeader) {
         this.responseStatus = 'error';
         this.apiResponse = JSON.stringify({
           status: false,
-          message: "Authorization token is required",
+          message: "token token is required",
           data: null,
           pagination: null
         }, null, 2);
