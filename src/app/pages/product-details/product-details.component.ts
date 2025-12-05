@@ -302,7 +302,7 @@ if ($response !== false) {
     // Mock data for different products
     const products: Record<number, any> = {
       694: {
-        id: 694,
+        id: "id",
         routing_api_id: null,
         title: "Google Play E-Gift Voucher",
         image: "https://99paisa.s3.ap-south-1.amazonaws.com/fund--request/cQXcnF2zu4BXaWaD7UWXG3y5bZ7Ld5RmIgL13k2p.jpg",

@@ -77,7 +77,7 @@ export class OrderPlaceComponent implements AfterViewInit, OnDestroy {
 
   defaultCodeSamples = {
     curl: `curl -X PUT \\
-'https://api2.99gift.in/api/serve/gift/order-create-corporate' \\
+'https://api2.99gift.in/api/serve/user/gift/order-create-corporate' \\
 -H 'Content-Type: application/json' \\
 -H 'token:   YOUR_API_TOKEN' \\
 -d '${JSON.stringify({data: "ENCRYPTED_PAYLOAD"}, null, 2)}'`,
@@ -85,7 +85,7 @@ export class OrderPlaceComponent implements AfterViewInit, OnDestroy {
 const orderData = ${JSON.stringify(this.defaultRequestPayload, null, 2)};
 // Note: In a real implementation, you would encrypt the payload here
 
-fetch('https://api2.99gift.in/api/serve/gift/order-create-corporate', {
+fetch('https://api2.99gift.in/api/serve/user/gift/order-create-corporate', {
   method: 'PUT',
   headers: {
     'Content-Type': 'application/json',
@@ -105,7 +105,7 @@ order_data = ${JSON.stringify(this.defaultRequestPayload, null, 2)}
 # Note: In a real implementation, you would encrypt the payload here
 
 response = requests.put(
-  "https://api2.99gift.in/api/serve/gift/order-create-corporate",
+  "https://api2.99gift.in/api/serve/user/gift/order-create-corporate",
   json={"data": "ENCRYPTED_PAYLOAD"},  // Replace with encrypted payload
   headers={
     "Content-Type": "application/json",
@@ -131,7 +131,7 @@ $options = [
 
 $context = stream_context_create($options);
 $response = file_get_contents(
-  'https://api2.99gift.in/api/serve/gift/order-create-corporate', 
+  'https://api2.99gift.in/api/serve/user/gift/order-create-corporate', 
   false, 
   $context
 );
@@ -217,7 +217,7 @@ if ($response !== false) {
               label: 'order-create-corporate',
               kind: monaco.languages.CompletionItemKind.Function,
               documentation: 'Corporate order creation endpoint',
-              insertText: "'https://api2.99gift.in/api/serve/gift/order-create-corporate'",
+              insertText: "'https://api2.99gift.in/api/serve/user/gift/order-create-corporate'",
               range: new monaco.Range(
                 position.lineNumber, 
                 position.column, 
